@@ -1,0 +1,46 @@
+body{
+    background-color: rgb(21, 21, 21);
+    color: white;
+}
+
+#header-logo{
+    position: fixed;
+    width: 150px;
+    height: 150px;
+    left: 10px;
+    top: 20px;
+}
+#header-strick_kaufseite{
+    position: fixed;
+    width: 100px;
+    height: 100px;
+    top: 35px;
+    left: 200px;
+}
+h1{
+    font-family: "Sofia", sans-serif;
+    text-shadow: 4px 8px 4px rgba(255, 111, 0, 0.338);
+    position: fixed;
+    left: -20px;
+    top: 250px;
+    rotate: 90deg;
+}
+ul.navigationlist{
+    list-style-type: none;
+}
+main{
+    margin-left: 200px;
+    margin-top: 200px;
+    width: 40%;
+}
+img.background-image{
+    position: absolute;
+    z-index: -1;
+    opacity: 50%;
+    top: 180px;
+    left: 130px;
+    border-radius: 20px;
+}
+p{
+    left: 150px;
+}
