@@ -253,7 +253,7 @@ html{
 }
 *{
     box-sizing: border-box;
-    color: white;
+    color: #fff;
     margin: 0;
     overflow-x: hidden;
 }
