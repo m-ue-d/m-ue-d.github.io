@@ -436,10 +436,11 @@ video{
     border-top-style: solid;
     border-top-width: 2px;
     border-color: white;
+    transition: transform 250ms ease-out; 
 }
 #gallery > img:hover{
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
-    transition: 250ms ease-out; 
+    transform: scale(20px);
 }
 #gallery > img{
     border-radius: 4px;
