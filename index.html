@@ -1,94 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
-    <link rel="stylesheet" href="css.css">
+    <link rel="stylesheet" href="index.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MY SITE</title>
-    
+    <link rel="icon" href="assets/sea-turtle.png">
+    <title>Müds Web Palace</title>
 </head>
-<body>
-    <header>
-        <h1>PLANT WEBSITE</h1>
+    <button><img src="assets/sea-turtle.png" alt="Turtle icon created by Freepik - Flaticon" width="100" height="100"></button>
+    <script src="index.js"></script>
+    <aside class="show">
+        <h1>MÜDs Webpalace</h1>
         <nav>
-            <ul>
-                <li><a href="index.html">Start</a></li>
-                <li><a href="#facts">About plants</a></li>
-                <li><a href="contact-a-plant.html">contact a plant</a></li>
+            <ul id="kreis">
+                <li><a href="index.html">Home</a><img src="assets/previews/index.png" alt="" width="100" height="100"></li>
+                <li><a href="">Placeholder</a><img src="assets/previews/index.png" alt="" width="100" height="100"></li>
+                <li><a href="list.html">Schulprojekte</a><img src="assets/previews/projekte.png" alt="" width="100" height="100"></li>
+                <li><a href="todo.html">Todo-List</a><img src="assets/previews/todo.png" alt="" width="100" height="100"></li>
+                <li><a href="impressum.html">Impressum</a><img src="assets/previews/impressum.png" alt="" width="100" height="100"></li>
+                <li><a href="">Placeholder</a><img src="assets/previews/index.png" alt="" width="100" height="100"></li>                
             </ul>
-        </nav>
-    </header>
+            <script>
+                update()
+    
+                window.addEventListener('resize', update)
+    
+                function update() {
+                    const kreis = document.getElementById('kreis');
+                    const radius = 300;
+                    const count = kreis.children.length;
+                    const abstand = (360 / count) * (Math.PI/180);    
+    
+    
+                    Array.from(kreis.children).forEach( (element,i) => {
 
+                    let a = element.firstChild;
+                    a.style.left = radius * Math.cos(abstand * i) + document.querySelector("aside").clientWidth/2 - a.clientWidth/2  + 'px';
+                    a.style.top = radius * Math.sin(abstand * i)+ document.querySelector("aside").clientHeight/2 - a.clientHeight/2  +'px';
+                    a.style.transform = "rotate("+(abstand*i+(Math.PI/2))+ "rad)";
+                    } );
+    
+                }
+            </script> 
+        </nav>
+    </aside>
 
     <main>
-        <section class="s1">
-            <img src="media/pexels-sohail-na-807598-narrow.jpg" alt="Leaves" width="4128px" height="1548px" loading="lazy">
-            <h2>MEET A PLANT</h2>
-            <p>
-                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. 
-                At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. 
-                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. 
-                At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. 
-                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. 
-                At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-            </p>
+        <h2>List of everything and stuff long title</h2>
 
-            <div id="gallery">
-                <img src="media/pexels-daria-shevtsova-970089.jpg" alt="Eukalyptus" width="2160" height="2280" loading="lazy">
-                <img src="media/pexels-daria-shevtsova-1012506.jpg" alt="Plant" width="2160" height="2280" loading="lazy">
-                <img src="media/pexels-daria-shevtsova-3644742.jpg" alt="Plant" width="4000" height="6000" loading="lazy">
-                <img src="media/pexels-maureen-bekker-1207978.jpg" alt="Plant" width="2448" height="3264" loading="lazy">
-                <img src="media/pexels-scott-webb-305827.jpg" alt="Plant" width="4000" height="6000" loading="lazy">
-                <img src="media/pexels-scott-webb-1048035.jpg" alt="Plant" width="4000" height="6000" loading="lazy">
-                <img src="media/pexels-visually-us-1494067.jpg" alt="Plant" width="3024" height="4032" loading="lazy">
-                <img src="media/pexels-adrian-mohammad-1224158.jpg" alt="Plant" width="2940" height="4028" loading="lazy">
-            </div>
-            <button type="button" onclick="
-                //document.getElementById('gallery').classList.toggle('autistenmode');
-                document.body.classList.toggle('autistenmode');
-            ">AUTISTISMUS PRIME</button>
-        </section>
-        
-        <section class="s2">
-            <div id="facts">
-                <h2>PLANT FACTS</h2>
-                
-                <ol>
-                    <li>There are some 320,000 species of plants, found on all continents, even Antarctica. Since more are discovered every year, that number will increase over time.</li>
-                    <li>90 % of the foods people eat come from just 30 plants, yet there are over 80,000 edible plants in the world.</li>
-                    <li>The typical mature tree can provide enough wood to make 170,100 pencils.</li>
-                    <li>Cabbage, broccoli, kale, cauliflower and kohlrabi are all the same species of plant (Brassica oleracea), but were selectively bred for different uses, to the point where they no longer even resemble one another.</li>
-                    <li>The smell of freshly-mown grass is actually a plant distress call.</li>
-                    <li>The fastest-growing plant is the world is Burmese bamboo (Bambusa burmanica). It can grow up to 91 cm (35 in) per day. That's almost 4 cm (1.5 inches) an hour. You could actually watch it grow.</li>
-                    <li>If onions make you cry when you chop them, it's because they give off sulphenic acid, a serious irritant, when you cut them.</li>
-                    <li>The word banana comes from the Arabic word banan and means finger and was given because of the fingerlike fruit. And a cluster of bananas is called a hand.</li>
-                    <li>Brazil is named after a tree, brazil wood (Paubrasilia echinata, formerly Caesalpinia echinata). It is now the official tree emblem of that country.</li>
-                    <li>About 85% of the world's plant life is found in the ocean.</li>
-                    <li>The average strawberry has 200 seeds. It's the only fruit that bears its seeds on the outside.</li>
-                </ol>
+        <input type="text" name="searchbar" id="searchbar" placeholder="Suche">
 
-            </div>
-            <img src="media/pexels-irina-iriser-1090977-narrow.jpg" alt="Leaves" width="5575" height="2090" loading="lazy" id="factsimg">
-        </section>
 
-        <section class="s3">
-            <div id="vid">
-                <h2>WATCH A PLANT GROW</h2>
-                <video width="1920" height="1080" controls preload="metadata">
-                    <source src="media/grow.mp4" type="video/mp4">
-                    Video couldn't be displayed
-                </video>
-            </div>  
-            <a href="contact-a-plant.html">CONTACT A PLANT</a>
-        </section>
-    </main>
-
-    <footer>
-        <h2>&copy; Meet a Plant 2021</h2>
-        <ul>
-            <li>Imprint</li>
-            <li>Privacy</li>
+        <ul id="wrapFlex">
+                <li class="item"><a href="index.html">Start</a></li>
+                <li class="item"><a href="#about">About</a></li>
+                <li class="item"><a href="blog.html">Blog</a></li>
+                <li class="item"><a href="list.html"><img src="" alt="The site with the list"></a></li>
+                <li class="item"><a href="index.html">Start</a></li>
+                <li class="item"><a href="#about">About</a></li>
+                <li class="item"><a href="blog.html">Blog</a></li>
+                <li class="item"><a href="list.html"><img src="" alt="The site with the list"></a></li>
+                <li class="item"><a href="index.html">Start</a></li>
+                <li class="item"><a href="#about">About</a></li>
+                <li class="item"><a href="blog.html">Blog</a></li>
+                <li class="item"><a href="list.html"><img src="" alt="The site with the list"></a></li>
+                <li class="item"><a href="index.html">Start</a></li>
+                <li class="item"><a href="#about">About</a></li>
+                <li class="item"><a href="blog.html">Blog</a></li>
+                <li class="item"><a href="list.html"><img src="" alt="The site with the list"></a></li>
+                <li class="item"><a href="index.html">Start</a></li>
+                <li class="item"><a href="#about">About</a></li>
+                <li class="item"><a href="blog.html">Blog</a></li>
+                <li class="item"><a href="list.html"><img src="" alt="The site with the list"></a></li>
+                <li class="item"><a href="index.html">Start</a></li>
+                <li class="item"><a href="#about">About</a></li>
+                <li class="item"><a href="blog.html">Blog</a></li>
+                <li class="item"><a href="list.html"><img src="" alt="The site with the list"></a></li>
         </ul>
-    </footer>
+        <script src="search.js"></script>
+    </main>
 </body>
 </html>
