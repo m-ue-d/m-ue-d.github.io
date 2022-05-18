@@ -2,6 +2,11 @@ navigator.geolocation;
 
 
 const field = document.querySelector("p");
+const root = document.querySelector(":root");
+const style = getComputedStyle(root);
+
+var rlat=1.0;          //idee: speicher das im Localstorage, und ändere es per button-click
+var rlon=1.0;
 
 navigator.geolocation.watchPosition(success,error);
 
@@ -14,19 +19,38 @@ function success(position){
     const longitude = position.coords.longitude;
     
 
-    const rlat = latitude + Math.random() /10;
-    const rlon = longitude + Math.random() /10;
+    //gespeicherteElemente = JSON.parse(localStorage.getItem("to-do-items"));
     
-    
+    if(localStorage.length==2){       
+        rlat = JSON.parse(localStorage.getItem("latitude"));
+        rlon = JSON.parse(localStorage.getItem("longitude"));
+    }
+    else{
+        rlat = latitude + Math.random() /10;
+        rlon = longitude + Math.random() /10;
+        saveToLocalStorage();
+    }
 
-    console.log(rlat+"   " + rlon + "\n");
-    console.log(calculateDistance(latitude,longitude,47.958017, 16.524730));
+    const distance = Math.round(calculateDistance(latitude,longitude,rlat,rlon));
 
-    field.innerHTML= Math.round(calculateDistance(latitude,longitude,47.958017, 16.524730));
+
+    field.innerHTML= distance;
+
+    var map = 100- (distance / 100);
+    if(map < 0 || map > 100)
+        map=0;
+    console.log(map);
+    map = Math.round(map);
+    root.style.setProperty("--bg-color", `hsl(${map}deg, 76%, 68%)`);
+
+    if(distance <= 15){
+        field.innerHTML= "FERTIG";
+    }
 
 }
 
 function error(){
+    field.innerHTML= "ERROR, GPS PERMISSION NEEDED"
     console.log("error");
 };
 
@@ -45,27 +69,15 @@ function calculateDistance(lat1, lon1, lat2, lon2,){
     dist = dist * 60 * 1.1515 * 1609.344;
 
 
-
-
-
-
-
-
-
-    /*
-    var R = 6371;
-    var dLat = toRads(lat2-lat1);
-    var dLon = toRads(lon2-lon1);
-    var rLat1 = toRads(lat1);
-    var rLat2 = toRads(lat2);
-
-    var a= Math.sin(dLat/2)*Math.sin(dLat/2) + Math.sin(dLon/2) * Math.sin(dLon/2) *Math.cos(rLat1) * Math.cos(rLat2);
-    var dist = 2* Math.atan2(Math.sqrt(a),Math.sqrt(1-a));*/
-
     return dist;
 }
 
 
 function toRads(deg){
     return (deg * Math.PI /180);    //wandelt grad in radianten um
+}
+
+function saveToLocalStorage(){
+    localStorage.setItem("latitude", JSON.stringify(rlat));
+    localStorage.setItem("longitude", JSON.stringify(rlon));
 }
