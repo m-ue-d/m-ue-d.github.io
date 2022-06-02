@@ -2,11 +2,6 @@ const box = document.querySelector("#TastenBox");
 let sounds= [];
 const tasten= ["q","2","w","3","e","r","5","t","6","z","7","u","z","y","s","x","d","c","v","g","b","h","n","j","m"];
 
-const synth=new Tone.Synth().toDestination();
-const now = Tone.now();
-synth.triggerAttack("C4");
-synth.triggerRelease(now);
-
 
 /*Dem Body werden hier 2 KeyEvents gegeben. Ein KeyUp und ein KeyDown. 
 Im KeyDown wird gespielt(Wenn dieser Ton nicht schon gespielt wurde) 
