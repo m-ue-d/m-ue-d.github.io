@@ -7,7 +7,6 @@ const tasten= ["q","2","w","3","e","r","5","t","6","z","7","u","z","y","s","x","
 Im KeyDown wird gespielt(Wenn dieser Ton nicht schon gespielt wurde) 
 und im KeyUp wird */
 document.querySelector("body").addEventListener ("keydown", (evt) => {
-    console.log(tasten);
     if(tasten.indexOf(evt.key)===-1)
         return;
         var audio = new Audio('assets/sounds/'+evt.key.toLowerCase()+'.mp3');
@@ -16,6 +15,7 @@ document.querySelector("body").addEventListener ("keydown", (evt) => {
             audio.play();
 
             //Background-Color
+            console.log(evt.key +"  "+ tasten.indexOf(evt.key));
             box.children[tasten.indexOf(evt.key)].style.backgroundColor= "skyblue";
         }
 });
