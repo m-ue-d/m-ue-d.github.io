@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <link rel="stylesheet" href="index.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="assets/sea-turtle.png">
+    <title>Müds Web Palace</title>
+</head>
+    <button><img src="assets/sea-turtle.png" alt="Turtle icon created by Freepik - Flaticon" width="100" height="100"></button>
+    <script src="index.js"></script>
+    <aside class="show">
+        <h1>MÜDs Webpalace</h1>
+        <nav>
+            <ul id="kreis">
+                <li><a href="index.html">Home</a><img src="assets/previews/index.png" alt="" width="100" height="100"></li>
+                <li><a href="">Placeholder</a><img src="assets/previews/index.png" alt="" width="100" height="100"></li>
+                <li><a href="list.html">Schulprojekte</a><img src="assets/previews/projekte.png" alt="" width="100" height="100"></li>
+                <li><a href="todo.html">Todo-List</a><img src="assets/previews/todo.png" alt="" width="100" height="100"></li>
+                <li><a href="impressum.html">Impressum</a><img src="assets/previews/impressum.png" alt="" width="100" height="100"></li>
+                <li><a href="">Placeholder</a><img src="assets/previews/index.png" alt="" width="100" height="100"></li>                
+            </ul>
+            <script>
+                update()
+    
+                window.addEventListener('resize', update)
+    
+                function update() {
+                    const kreis = document.getElementById('kreis');
+                    const radius = 300;
+                    const count = kreis.children.length;
+                    const abstand = (360 / count) * (Math.PI/180);    
+    
+    
+                    Array.from(kreis.children).forEach( (element,i) => {
+
+                    let a = element.firstChild;
+                    a.style.left = radius * Math.cos(abstand * i) + document.querySelector("aside").clientWidth/2 - a.clientWidth/2  + 'px';
+                    a.style.top = radius * Math.sin(abstand * i)+ document.querySelector("aside").clientHeight/2 - a.clientHeight/2  +'px';
+                    a.style.transform = "rotate("+(abstand*i+(Math.PI/2))+ "rad)";
+                    } );
+    
+                }
+            </script> 
+        </nav>
+    </aside>
+
+    <main>
+        <h2>List of everything and stuff long title</h2>
+
+        <input type="text" name="searchbar" id="searchbar" placeholder="Suche">
+
+
+        <ul id="wrapFlex">
+                <li class="item"><a href="index.html">Start</a></li>
+                <li class="item"><a href="#about">About</a></li>
+                <li class="item"><a href="blog.html">Blog</a></li>
+                <li class="item"><a href="list.html"><img src="" alt="The site with the list"></a></li>
+                <li class="item"><a href="index.html">Start</a></li>
+                <li class="item"><a href="#about">About</a></li>
+                <li class="item"><a href="blog.html">Blog</a></li>
+                <li class="item"><a href="list.html"><img src="" alt="The site with the list"></a></li>
+                <li class="item"><a href="index.html">Start</a></li>
+                <li class="item"><a href="#about">About</a></li>
+                <li class="item"><a href="blog.html">Blog</a></li>
+                <li class="item"><a href="list.html"><img src="" alt="The site with the list"></a></li>
+                <li class="item"><a href="index.html">Start</a></li>
+                <li class="item"><a href="#about">About</a></li>
+                <li class="item"><a href="blog.html">Blog</a></li>
+                <li class="item"><a href="list.html"><img src="" alt="The site with the list"></a></li>
+                <li class="item"><a href="index.html">Start</a></li>
+                <li class="item"><a href="#about">About</a></li>
+                <li class="item"><a href="blog.html">Blog</a></li>
+                <li class="item"><a href="list.html"><img src="" alt="The site with the list"></a></li>
+                <li class="item"><a href="index.html">Start</a></li>
+                <li class="item"><a href="#about">About</a></li>
+                <li class="item"><a href="blog.html">Blog</a></li>
+                <li class="item"><a href="list.html"><img src="" alt="The site with the list"></a></li>
+        </ul>
+        <script src="search.js"></script>
+    </main>
+</body>
+</html>

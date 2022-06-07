@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <link rel="stylesheet" href="index.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="assets/sea-turtle.png">
+    <title>Müds Web Palace</title>
+
+    <style>
+    #todo-add,#todo-delete{
+        font-size: 1.5rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+        filter: drop-shadow(4px 5px 4px #000000b0);
+        transition: transform ease 500ms;
+    }
+    #todo-add{
+        position: fixed;
+        top: 50%;
+        left: 20%;
+
+        transform: translate(-50%, 0%);
+    }
+    #todo-delete{
+        position: fixed;
+        top: 50%;
+        left: 40%;
+
+        transform: translate(-50%, 0%);
+    }
+    main > button{
+        margin: 100px;
+    }
+    #todo-add:hover,#todo-delete:hover{
+        transform: translate(-50%, 0%);
+    }    
+    #todo-liste > li{
+        color: black;
+        -webkit-text-fill-color: white;
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: black;
+        filter: drop-shadow(2px 8px 5px #000000);
+        cursor: pointer;
+    }
+    #todo-liste > li.done{
+        text-decoration: rgb(255, 255, 0) line-through;
+    }
+    </style>
+</head>
+<body>
+    <button><img src="assets/sea-turtle.png" alt="Turtle icon created by Freepik - Flaticon" width="100" height="100"></button>
+    <script src="index.js"></script>
+    <aside class="show">
+        <h1>MÜDs Webpalace</h1>
+        <nav>
+            <ul id="kreis">
+                <li><a href="index.html">Home</a><img src="assets/previews/index.png" alt="" width="100" height="100"></li>
+                <li><a href="">Placeholder</a><img src="assets/previews/index.png" alt="" width="100" height="100"></li>
+                <li><a href="list.html">Schulprojekte</a><img src="assets/previews/projekte.png" alt="" width="100" height="100"></li>
+                <li><a href="todo.html">Todo-List</a><img src="assets/previews/todo.png" alt="" width="100" height="100"></li>
+                <li><a href="impressum.html">Impressum</a><img src="assets/previews/impressum.png" alt="" width="100" height="100"></li>
+                <li><a href="">Placeholder</a><img src="assets/previews/index.png" alt="" width="100" height="100"></li>         
+            </ul>
+            <script>
+                update()
+    
+                window.addEventListener('resize', update)
+    
+                function update() {
+                    const kreis = document.getElementById('kreis');
+                    const radius = 300;
+                    const count = kreis.children.length;
+                    const abstand = (360 / count) * (Math.PI/180);    
+    
+    
+                    Array.from(kreis.children).forEach( (element,i) => {
+
+                    let a = element.firstChild;
+                    a.style.left = radius * Math.cos(abstand * i) + document.querySelector("aside").clientWidth/2 - a.clientWidth/2  + 'px';
+                    a.style.top = radius * Math.sin(abstand * i)+ document.querySelector("aside").clientHeight/2 - a.clientHeight/2  +'px';
+                    a.style.transform = "rotate("+(abstand*i+(Math.PI/2))+ "rad)";
+                    } );
+    
+                }
+            </script> 
+        </nav>
+    </aside>
+
+    <main>
+        <h2>Todo - List</h2>
+
+        <button id="todo-add">Eintrag hinzufügen</button>
+        <button id="todo-delete">Erledigte Einträge löschen</button>
+
+        <ul id="todo-liste">
+
+        </ul>
+
+        <script src="todo.js"></script>
+    </main>
+</body>
+</html>
